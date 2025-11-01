@@ -18,12 +18,18 @@ export const Colors = {
     tabIconSelected: tintColorLight,
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
+    // 把这里改成我们的专属色！
+    text: '#E6EDF3',      // 主要文字
+    background: '#0D1117', // 主背景
+    tint: tintColorDark,  // 高亮色 (用于 Tab 选中等)
+    icon: '#8B949E',      // 图标颜色
+    tabIconDefault: '#8B949E', // Tab 未选中颜色
+    tabIconSelected: tintColorDark, // Tab 选中颜色
+    
+    // 你还可以加点自定义的颜色，给其他组件用
+    card: '#161B22',      // 卡片背景
+    border: '#30363D',    // 边框/分割线
+    accent: '#58A6FF',    // 高亮/价格颜色
   },
 };
 

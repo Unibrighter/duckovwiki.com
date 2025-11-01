@@ -1,7 +1,10 @@
 import { Link } from 'expo-router'; // 操，把这玩意儿引进来！
 import React from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, Pressable, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { ThemedText } from '@/components/themed-text';
+import { Card } from '@/components/ui/Card'; // 引入 Card
 
 import allItems from '../../data/items.json';
 
@@ -16,11 +19,13 @@ export default function ItemListScreen() {
         renderItem={({ item }) => (
           // 用 Link 组件把整个卡片包起来
           <Link href={`/items/${item.ID}`} asChild> 
-            <View style={styles.itemContainer}>
-              <Text style={styles.itemName}>{item.DisplayName}</Text>
-              <Text style={styles.itemDescription} numberOfLines={2}>{item.Description}</Text>
-              <Text style={styles.itemPrice}>价格: {item.Price}</Text>
-            </View>
+            <Pressable>
+              <Card style={{ marginVertical: 8, marginHorizontal: 16, padding: 15 }}>
+                <ThemedText type="title">{item.DisplayName}</ThemedText>
+                <ThemedText type="subtitle" numberOfLines={2}>{item.Description}</ThemedText>
+                <ThemedText type="defaultSemiBold">Price: {item.Price}</ThemedText>
+              </Card>
+            </Pressable>
           </Link>
         )}
       />

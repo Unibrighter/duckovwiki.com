@@ -1,7 +1,6 @@
 import { Link } from 'expo-router'; // 操，把这玩意儿引进来！
 import React from 'react';
-import { FlatList, Pressable, StyleSheet, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 
 import allItems from '../../data/items.json';
 
@@ -9,22 +8,20 @@ export default function ItemListScreen() {
   const displayItems = allItems.filter(item => item.Category !== 'Character');
 
   return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
+    <FlatList
         data={displayItems}
         keyExtractor={(item) => item.ID.toString()}
         renderItem={({ item }) => (
           // 用 Link 组件把整个卡片包起来
           <Link href={`/items/${item.ID}`} asChild> 
-            <Pressable style={styles.itemContainer}>
+            <View style={styles.itemContainer}>
               <Text style={styles.itemName}>{item.DisplayName}</Text>
               <Text style={styles.itemDescription} numberOfLines={2}>{item.Description}</Text>
               <Text style={styles.itemPrice}>价格: {item.Price}</Text>
-            </Pressable>
+            </View>
           </Link>
         )}
       />
-    </SafeAreaView>
   );
 };
 

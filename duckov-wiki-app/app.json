@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "duckovwiki.com",
-    "slug": "duckovwiki.com",
+    "slug": "duckovwiki",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -9,7 +9,11 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "co.kunlun.duckovwiki",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -43,6 +47,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "52ce339d-07cb-4bdc-8ba6-534454ca1fc2"
+      }
     }
   }
 }
